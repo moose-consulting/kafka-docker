@@ -3,7 +3,7 @@ name: Kafka Docker Push
 on:
   push:
     tags:
-      - "*"
+      - v*
 
 env:
   IMAGE_NAME: kafka
@@ -12,7 +12,7 @@ env:
 jobs:
   push:
     runs-on: ubuntu-latest
-
+    if: github.event == 'push'
     steps:
       - uses: actions/checkout@v2
 
